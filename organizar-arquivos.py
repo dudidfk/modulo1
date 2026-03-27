@@ -1,7 +1,7 @@
 import os 
 import shutil
 
-pasta = "C:/Users/Administrator/Downloads"
+pasta = r"C:\Users\Administrator\Downloads"
 arquivos = os.listdir(pasta)
 
 for arquivo in arquivos:
