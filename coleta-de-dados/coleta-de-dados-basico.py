@@ -1,13 +1,14 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas
 
-response = requests.get("https://stooq.com/q/d/?s=%5Ebvp&i=d")
-print(response.text[:600])
+pagina = requests.get('https://quotes.toscrape.com')
+dados_pagina = BeautifulSoup(pagina.text, 'html.parser')
 
-soup = BeautifulSoup(response.text, features='html.parser')
-print(soup.prettify()[:1000])
+def filtro(classe_css):
+    return classe_css is not None and len(classe_css) > 4 
 
-print('Pandas: ')
-url_dados = pandas.read_html('https://stooq.com/q/d/?s=%5Ebvp&i=d')
-print(url_dados[0].head(10))
+todas_frases = dados_pagina.find_all('div', class_=filtro)
+
+for div in todas_frases:
+
+    print(div['class'])
