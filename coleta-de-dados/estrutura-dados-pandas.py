@@ -15,8 +15,8 @@ print(df[['nome', 'idade']])
 
 df['salario'] = [5000, 4500, 6000] # Adicionando uma nova coluna 'salario' ao DataFrame
 
-df.loc[len(df)] = {
-    'nome': 'David', 
+df.loc[len(df)] = { # Adicionando uma nova linha ao DataFrame usando um dicionário,
+    'nome': 'David', # o índice é definido como o comprimento atual do DataFrame para adicionar a nova linha no final
     'idade': 28, 
     'cidade': 'Curitiba', 
     'salario': 5500
